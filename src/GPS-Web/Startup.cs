@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +28,13 @@ namespace GPS_Web
 
             app.UseRouting();
 
+            app.UseSerilogRequestLogging();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
+                    Log.Information("Responding with Hello World!");
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
