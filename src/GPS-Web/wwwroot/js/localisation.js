@@ -34,9 +34,11 @@
         if (formEnabled) {
             disableForm();
             formEnabled = false;
+            statisticWrapper.show("slow");
         } else {
             enableForm();
             formEnabled = true;
+            statisticWrapper.hide("slow");
         }
         function disableForm() {
             name.prop("disabled", true);
