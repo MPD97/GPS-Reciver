@@ -17,4 +17,8 @@
     <ProjectReference Include="..\GPS-Core\GPS-Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
