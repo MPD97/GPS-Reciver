@@ -16,7 +16,7 @@
 	let heading = $("#Heading");
 	let speed = $("#Speed");
 
-	let counterValue = 0;
+	let counterValue = 1;
 	let button = $("#button");
 
 	button.on("click", function () {
@@ -39,8 +39,8 @@
 
 		let options = {
 			enableHighAccuracy: highAccuracy.is(":checked"),
-			timeout: 10000,
-			maximumAge: 0,
+			timeout: 27000,
+			maximumAge: 30000,
 			desiredAccuracy: 0
 		};
 
@@ -55,8 +55,9 @@
 	}
 
 	function onSuccess(position) {
-		timestamp.text(position.coords.timestamp);
-		counter.text(counterValue++);
+		let cv = counterValue++;
+		timestamp.text(position.timestamp);
+		counter.text(cv);
 		latitude.text(position.coords.latitude);
 		longitude.text(position.coords.longitude);
 		accuracy.text(position.coords.accuracy);
@@ -64,6 +65,24 @@
 		altitudeAccuracy.text(position.coords.altitudeAccuracy);
 		heading.text(position.coords.heading);
 		speed.text(position.coords.speed);
+
+		let data = {
+			Name: name.val(),
+			DeviceName: deviceName.val(),
+			HighAccuracy: highAccuracy.is(":checked"),
+			Timestamp: position.timestamp,
+			Counter: cv,
+			Latitude: position.coords.latitude,
+			Longitude: position.coords.longitude,
+			Accuracy: position.coords.accuracy,
+			Altitude: position.coords.altitude,
+			AltitudeAccuracy: position.coords.altitudeAccuracy,
+			Heading: position.coords.heading,
+			Speed: position.coords.speed
+		};
+
+		console.log(data);
+
 	}
 
 	function clearWatch() {
@@ -82,14 +101,26 @@
 		altitudeAccuracy.text("0");
 		heading.text("0");
 		speed.text("0");
-		counterValue = 0;
+		counterValue = 1;
 	}
 
 	// onError Callback receives a PositionError object
 	//
 	function onError(error) {
-		alert('code: ' + error.code + '\n' +
-			'message: ' + error.message + '\n');
+		switch (error.code) {
+			case error.PERMISSION_DENIED:
+				x.innerHTML = "User denied the request for Geolocation."
+				break;
+			case error.POSITION_UNAVAILABLE:
+				x.innerHTML = "Location information is unavailable."
+				break;
+			case error.TIMEOUT:
+				x.innerHTML = "The request to get user location timed out."
+				break;
+			case error.UNKNOWN_ERROR:
+				x.innerHTML = "An unknown error occurred."
+				break;
+		}
 	}
 
 

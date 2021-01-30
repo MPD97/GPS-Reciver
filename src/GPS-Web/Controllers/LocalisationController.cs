@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GPS_Core.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,14 @@ namespace GPS_Web.Controllers
         public async Task<IActionResult> Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Localisation(Localisation model)
+        {
+            _logger.LogInformation("Localisation-logs-", model);
+
+            return Ok();
         }
     }
 }
