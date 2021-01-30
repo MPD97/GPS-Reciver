@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace GPS_Web.Controllers
 {
-    public class LocalisationController :Controller
+    public class LocalisationController : Controller
     {
         private readonly ILogger<LocalisationController> _logger;
 
@@ -24,9 +25,15 @@ namespace GPS_Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Localisation(Localisation model)
+        public async Task<IActionResult> Upload([FromForm] Localisation model)
         {
-            _logger.LogInformation("Localisation-logs-", model);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _logger.LogInformation("Localisation-logs-{Name}-{DeviceName}-{HighAccuracy}-{Counter}-{Timestamp}-{Latitude}-{Longitude}-{Accuracy}",
+              model.Name, model.DeviceName, model.HighAccuracy, model.Counter, model.Timestamp, model.Latitude, model.Longitude, model.Accuracy);
 
             return Ok();
         }

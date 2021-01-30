@@ -67,24 +67,33 @@
 		speed.text(position.coords.speed);
 
 		let data = {
-			Name: name.val(),
-			DeviceName: deviceName.val(),
-			HighAccuracy: highAccuracy.is(":checked"),
-			Timestamp: position.timestamp,
-			Counter: cv,
-			Latitude: position.coords.latitude,
-			Longitude: position.coords.longitude,
-			Accuracy: position.coords.accuracy,
-			Altitude: position.coords.altitude,
-			AltitudeAccuracy: position.coords.altitudeAccuracy,
-			Heading: position.coords.heading,
-			Speed: position.coords.speed
+			name: name.val(),
+			deviceName: deviceName.val(),
+			highAccuracy: highAccuracy.is(":checked"),
+			timestamp: position.timestamp,
+			counter: cv,
+			latitude: position.coords.latitude,
+			longitude: position.coords.longitude,
+			accuracy: position.coords.accuracy,
+			altitude: position.coords.altitude,
+			altitudeAccuracy: position.coords.altitudeAccuracy,
+			heading: position.coords.heading,
+			speed: position.coords.speed
 		};
 
-		console.log(data);
-
+		postData(data);
 	}
 
+	function postData(data) {
+		console.log(data);
+		let json = JSON.stringify(data);
+		console.log(json);
+
+		$.post("/Localisation/Upload", data, "json")
+			.done(function (data) {
+				console.log("Localisation pushed" + data);
+			});
+	}
 	function clearWatch() {
 		if (positionWatcher != null) {
 			navigator.geolocation.clearWatch(positionWatcher);

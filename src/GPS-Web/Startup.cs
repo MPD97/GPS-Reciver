@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace GPS_Web
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseDefaultFiles();
             app.UseRouting();
             app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints =>
