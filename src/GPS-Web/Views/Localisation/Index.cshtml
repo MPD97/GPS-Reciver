@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Localisation</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="~/js/localisation.js"></script>
+</head>
+<body>
+	<main role="main" class="container">
+		<div class="container">
+			<h2 class="text-info"> Logowanie lokalizacji</h2>
+			<div class="form-horizontal">
+
+				<div class="form-group mt-2">
+					<label>Run Name</label>
+					<input id="Name" type="text" class="form-control" placeholder="Name of the run" />
+				</div>
+
+				<div class="form-group mt-2">
+					<label>Device Name</label>
+					<input id="DeviceName" type="text" class="form-control" placeholder="Device name eg. Xiaomi Redmi Note 9" />
+				</div>
+
+				<div class="form-group mt-2">
+					<input id="HighAccuracy" name="HighAccuracy" type="checkbox" checked />
+					<label>High Accuracy</label>
+				</div>
+
+				<span type="submit" id="button" class="btn btn-primary">Start</span>
+			</div>
+
+			<div id="statisticWrapper" style="display: none;">
+				<h3 class="text-info">Statistics</h3>
+				<div class="row">
+					<div class="col-sm">
+						<label>Timestamp</label>
+						<p id="Timestamp" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Counter</label>
+						<p id="Counter" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Latitude</label>
+						<p id="Latitude" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Longitude</label>
+						<p id="Longitude" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Accuracy</label>
+						<p id="Accuracy" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Altitude</label>
+						<p id="Altitude" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>AltitudeAccuracy</label>
+						<p id="AltitudeAccuracy" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Heading</label>
+						<p id="Heading" class="">0</p>
+					</div>
+
+					<div class="col-sm">
+						<label>Speed</label>
+						<p id="Speed" class="">0</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>

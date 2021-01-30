@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BBF09B53-F68A-4DF7-ACBA-83A7DEED70CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6A60F76F-5EF8-4530-888D-050F2D96A078}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPS-Core", "GPS-Core\GPS-Core.csproj", "{27E6EA74-4775-4057-83E3-E2611EE2D7D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPS-Web", "GPS-Web\GPS-Web.csproj", "{5B5F62F2-D0D6-4C51-B4B5-F23B7A9965AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27E6EA74-4775-4057-83E3-E2611EE2D7D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E6EA74-4775-4057-83E3-E2611EE2D7D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E6EA74-4775-4057-83E3-E2611EE2D7D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E6EA74-4775-4057-83E3-E2611EE2D7D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5F62F2-D0D6-4C51-B4B5-F23B7A9965AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5F62F2-D0D6-4C51-B4B5-F23B7A9965AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5F62F2-D0D6-4C51-B4B5-F23B7A9965AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5F62F2-D0D6-4C51-B4B5-F23B7A9965AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27E6EA74-4775-4057-83E3-E2611EE2D7D9} = {BBF09B53-F68A-4DF7-ACBA-83A7DEED70CB}
+		{5B5F62F2-D0D6-4C51-B4B5-F23B7A9965AA} = {BBF09B53-F68A-4DF7-ACBA-83A7DEED70CB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4A7B906-DA9A-4E57-A0E2-6A872F370E3A}
+	EndGlobalSection
+EndGlobal
